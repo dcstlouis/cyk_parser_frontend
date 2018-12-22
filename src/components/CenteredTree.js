@@ -7,7 +7,7 @@ import NodeLabel from './NodeLabel.js';
 // https://www.npmjs.com/package/react-d3-tree#auto-centering-inside-treecontainer
 
 const containerStyles = {
-  'width': '75vw',
+  'width': '70vw',
   'height': '80vh',
 }
 

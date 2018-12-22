@@ -1,19 +1,36 @@
 import React from "react";
 import styled from 'styled-components';
-// import variables from '../variables.js';
+
+import Button from './Button.js';
 
 const OuterWrapper = styled.div`
+  // border: 3px solid green;
   height: 100%;
   position: relative;
-  border: 3px solid green;
 `
 
 const InnerWrapper = styled.div`
   margin: 0;
-  position: absolute;
+  position: relative;
+  padding: 5%;
   top: 25%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+`
+
+const Input = styled.input`
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(174, 174, 174);
+  border-radius: 10px;
+  color: rgb(162, 162, 162);
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  height: 30px;
+  line-height: 15px;
+  outline: none;
+  padding: 10px;
+  width: 90%;
 `
 
 export default class InputForm extends React.Component {
@@ -30,9 +47,7 @@ export default class InputForm extends React.Component {
   }
 
   handleSubmit(event) {
-    // this.setState({value: event.target.value});
     event.preventDefault();
-    console.log(this.state.value)
     this.props.handleInputSubmit(this.state.value);
   }
 
@@ -42,12 +57,12 @@ export default class InputForm extends React.Component {
         <InnerWrapper>
           <form onSubmit={this.handleSubmit}>
             <label>
-              Sentence:
-                <input type="text"
+                <Input type="text"
                        value={this.state.value}
-                       onChange={this.handleChange} />
+                       onChange={this.handleChange}
+                       placeholder="Enter a sentence to parse"/>
             </label>
-            <input type="submit" value="Submit" />
+            <Button type="submit" value="Submit" />
           </form>
         </InnerWrapper>
       </OuterWrapper>

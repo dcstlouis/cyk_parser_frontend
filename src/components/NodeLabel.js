@@ -2,6 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 
 const P = styled.p`
+  font-family: 'Roboto', Arial, sans-serif;
   font-size: 2em;
   text-align: left;
 `
