@@ -2,9 +2,8 @@ import styled from 'styled-components';
 
 const Button = styled.input`
   border-radius: 20px;
-  background-color: rgb(100, 149, 237);
-  border: 1px solid rgb(65, 105, 225);
-  color: rgb(255,235,205);
+  background-color: #328DAA;
+  color: #E4EBF2;
   font-size: 20px;
   font-family: 'Roboto', Arial, sans-serif;
   font-weight: bold;
@@ -16,7 +15,7 @@ const Button = styled.input`
   margin-top: 5%;
 
   &:active {
-    background-color: rgb(65, 105, 225);
+    background-color: #8A8683;
     transform: translateY(1px);
   }
 `

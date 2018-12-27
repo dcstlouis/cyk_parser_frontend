@@ -13,7 +13,7 @@ const InnerWrapper = styled.div`
   margin: 0;
   position: relative;
   padding: 5%;
-  top: 25%;
+  top: 10%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 `
