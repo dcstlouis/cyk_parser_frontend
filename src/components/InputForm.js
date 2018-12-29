@@ -39,7 +39,7 @@ const Input = styled.input`
 const Label = styled.div`
   color: #8A140E;
   font-family: 'Roboto', Arial, sans-serif;
-  font-size: 1.25em;
+  font-size: 1.15em;
 `
 
 export default class InputForm extends React.Component {

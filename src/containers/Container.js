@@ -43,7 +43,7 @@ export default class Container extends Component {
     this.fetchTreeData = this.fetchTreeData.bind(this);
     this.updateTreeData = this.updateTreeData.bind(this);
     this.state = {
-      tree: [{name: "oops", children: [{name: "didn't work"}]}],
+      tree: [{name: "Loading tree..."}],
       grammar: [],
       badData: {}
     }
