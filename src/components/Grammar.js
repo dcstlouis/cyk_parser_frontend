@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from 'styled-components';
 
 const ScrollingDiv = styled.div`
-  background: #E4EBF2;
+  background: #F3EED6;
   border-radius: 10px;
   font-family: 'Roboto', Arial, sans-serif;
   font-size: 20px;
@@ -11,7 +11,7 @@ const ScrollingDiv = styled.div`
   position: relative;
   overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
-  max-height: 70vh;
+  max-height: 60vh;
 `
 
 
@@ -35,7 +35,6 @@ export default class Grammar extends Component {
 
   render() {
     const grammar = this.props.grammar;
-    console.log(grammar)
     return (
         this.drawGrammar(grammar)
     );

@@ -8,14 +8,14 @@ import InputForm from '../components/InputForm';
 import variables from '../variables.js';
 
 const Header = styled.header`
-  background-color: #328DAA;
-  border: 1px solid #328DAA;
+  background-color: #51A2D9;
+  border: 1px solid #51A2D9;
   border-radius: 5px;
   height: 8vh;
 `
 
 const Logo = styled.div`
-  color: #E4EBF2;
+  color: #F3EED6;
   font-family: 'Roboto', Arial, sans-serif;
   font-size: 1.5em;
   margin-left: 1%;
@@ -44,7 +44,8 @@ export default class Container extends Component {
     this.updateTreeData = this.updateTreeData.bind(this);
     this.state = {
       tree: [{name: "oops", children: [{name: "didn't work"}]}],
-      grammar: []
+      grammar: [],
+      badData: {}
     }
   }
 
@@ -54,10 +55,9 @@ export default class Container extends Component {
     .then(data =>
       this.setState({
         grammar: data.grammar,
-        isLoading: false,
       })
     )
-    .catch(error => this.setState({ error, isLoading: false }));
+    .catch(error => this.setState({ error }));
   }
 
   fetchTreeData() {
@@ -66,10 +66,9 @@ export default class Container extends Component {
       .then(data =>
         this.setState({
           tree: [data],
-          isLoading: false,
         })
       )
-      .catch(error => this.setState({ error, isLoading: false }));
+      .catch(error => this.setState({ error }));
   }
 
   updateTreeData(i) {
@@ -85,9 +84,9 @@ export default class Container extends Component {
     })
     .then(response => response.json())
     .then(data =>
-        this.setState({
-          tree: [data]
-        })
+        data.error ?
+        this.setState({badData: data}) :
+        this.setState({tree: [data], badData: {}})
       )
       .catch(error => this.setState({ error }));
   }
@@ -109,7 +108,8 @@ export default class Container extends Component {
           <CenteredTree tree={this.state.tree}/>
           <RightPanel>
             <Grammar grammar={this.state.grammar}/>
-            <InputForm handleInputSubmit={this.handleInputSubmit}/>
+            <InputForm handleInputSubmit={this.handleInputSubmit}
+                       badData={this.state.badData}/>
           </RightPanel>
         </Display>
       </div>
